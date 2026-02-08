@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Valentine Special</title>
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #ffdde1, #ee9ca7);
+    text-align: center;
+    color: #333;
+}
+
+.page {
+    display: none;
+    padding: 20px;
+}
+
+.active {
+    display: block;
+}
+
+img {
+    max-width: 80%;
+    border-radius: 15px;
+    margin-top: 20px;
+}
+
+button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 25px;
+    font-size: 18px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.green { background: #28a745; color: white; }
+.red { background: #dc3545; color: white; }
+.pink { background: #ff4da6; color: white; }
+
+.box-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.box {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.small {
+    font-size: 14px;
+    color: #555;
+}
+</style>
+</head>
+<body>
+
+<!-- PAGE 1 -->
+<div class="page active" id="page1">
+    <img src="image1.jpg">
+    <h1>Will you be mine?</h1>
+    <p class="small">Kal kya hoga kisne dekha hai<br>Aaj toh hum sath ho sakte hai</p>
+
+    <div>
+        <button id="yesBtn" class="green" onclick="goToPage('page2')">YES</button>
+        <button id="noBtn" class="red" onclick="growYes()">NO</button>
+    </div>
+</div>
+
+<!-- PAGE 2 -->
+<div class="page" id="page2">
+    <img src="image2.jpg">
+    <h1>Happy Valentine Day! 💍</h1>
+    <p class="small">
+        Aapke sath bitaya hua 1 hour v mere liye 24 hour ke barabar hai 🤗
+    </p>
+    <button class="pink" onclick="goToPage('page3')">SEE MY GIFTS</button>
+</div>
+
+<!-- PAGE 3 -->
+<div class="page" id="page3">
+    <h1>Something for you</h1>
+
+    <div class="box-container">
+        <div class="box" onclick="goToPage('gallery')">
+            <h2>📸</h2>
+            <h3>Our Gallery</h3>
+            <p class="small">6 cinematic memories</p>
+        </div>
+
+        <div class="box" onclick="goToPage('letter')">
+            <h2>💌</h2>
+            <h3>My Heart</h3>
+            <p class="small">A letter for you</p>
+        </div>
+
+        <div class="box" onclick="goToPage('story')">
+            <h2>🎥</h2>
+            <h3>Our Story</h3>
+            <p class="small">Watch this surprise</p>
+        </div>
+    </div>
+
+    <button class="pink" onclick="goToPage('final')">Finally ✨</button>
+</div>
+
+<!-- GALLERY PAGE -->
+<div class="page" id="gallery">
+    <h1>MEMORIES</h1>
+    <img src="g1.jpg">
+    <img src="g2.jpg">
+    <img src="g3.jpg">
+    <img src="g4.jpg">
+    <img src="g5.jpg">
+    <img src="g6.jpg">
+    <br>
+    <button onclick="goToPage('page3')">Back</button>
+</div>
+
+<!-- LETTER PAGE -->
+<div class="page" id="letter">
+    <h1>My Heart to Yours</h1>
+    <img src="letter.jpg">
+    <br>
+    <button onclick="goToPage('page3')">Back</button>
+</div>
+
+<!-- STORY PAGE -->
+<div class="page" id="story">
+    <video width="80%" controls autoplay>
+        <source src="story.mp4" type="video/mp4">
+    </video>
+
+    <h2>Forever to Go!</h2>
+    <p class="small">
+        Jab se aap aaye ho mere life mai uss moment se…  
+        Sab kuch better ho gya hai 🌺💫  
+        You are my peace, my happiness, and my home 💖  
+        Love feels effortless and endless 💕  
+        I promise loyalty, laughter, and care through every moment 💍❤️  
+        Together always, heart to heart, with forever to go 🫂✨💜
+    </p>
+
+    <button onclick="goToPage('page3')">Back</button>
+</div>
+
+<!-- FINAL PAGE -->
+<div class="page" id="final">
+    <h1>This is for you</h1>
+    <video width="80%" controls autoplay>
+        <source src="final.mp4" type="video/mp4">
+    </video>
+</div>
+
+<script>
+function goToPage(pageId) {
+    let pages = document.querySelectorAll('.page');
+    pages.forEach(p => p.classList.remove('active'));
+    document.getElementById(pageId).classList.add('active');
+}
+
+let size = 18;
+function growYes() {
+    size += 10;
+    document.getElementById("yesBtn").style.fontSize = size + "px";
+}
+</script>
+
+</body>
+      </html>
